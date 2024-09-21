@@ -19,3 +19,7 @@ C:\Users\Said\Desktop\C#Test\soscsrpg\obj\Debug\net8.0-windows\refint\soscsrpg.d
 C:\Users\Said\Desktop\C#Test\soscsrpg\obj\Debug\net8.0-windows\soscsrpg.pdb
 C:\Users\Said\Desktop\C#Test\soscsrpg\obj\Debug\net8.0-windows\soscsrpg.genruntimeconfig.cache
 C:\Users\Said\Desktop\C#Test\soscsrpg\obj\Debug\net8.0-windows\ref\soscsrpg.dll
+C:\Users\Said\Desktop\C#Test\soscsrpg\bin\Debug\net8.0-windows\Engine.dll
+C:\Users\Said\Desktop\C#Test\soscsrpg\bin\Debug\net8.0-windows\Engine.pdb
+C:\Users\Said\Desktop\C#Test\soscsrpg\obj\Debug\net8.0-windows\soscsrpg.csproj.AssemblyReference.cache
+C:\Users\Said\Desktop\C#Test\soscsrpg\obj\Debug\net8.0-windows\soscsrpg.csproj.Up2Date

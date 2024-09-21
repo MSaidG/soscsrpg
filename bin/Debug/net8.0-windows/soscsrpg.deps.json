@@ -7,14 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "soscsrpg/1.0.0": {
+        "dependencies": {
+          "Engine": "1.0.0"
+        },
         "runtime": {
           "soscsrpg.dll": {}
+        }
+      },
+      "Engine/1.0.0": {
+        "runtime": {
+          "Engine.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "soscsrpg/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Engine/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

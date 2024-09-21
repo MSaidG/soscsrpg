@@ -19,25 +19,41 @@
         
         
         
-        <Grid Grid.ColumnSpan="2">
-            <Frame Background="Moccasin"></Frame>
+        <Grid Grid.ColumnSpan="2" Background="Moccasin">
             <Label Content="Menu"></Label>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="1">
-            <Frame Background="Orange"></Frame>
-            <Label Content="Player Data"></Label>
-
+        <Grid Grid.Column="0" Grid.Row="1" Background="Orange">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Background="Transparent" Grid.Column="0" BorderThickness="0" Margin="10,10,10,0">
+                <ListBoxItem Content="Name: "/>
+                <ListBoxItem Content="Class:"/>
+                <ListBoxItem Content="Hit Points:"/>
+                <ListBoxItem Content="Gold: "/>
+                <ListBoxItem Content="XP: "/>
+                <ListBoxItem Content="Level: "/>
+            </ListBox>
+            <ListBox Background="Transparent" Grid.Column="1" BorderThickness="0" Margin="0,10,10,10">
+                <ListBoxItem Content="{Binding player.Name}"/>
+                <ListBoxItem Content="{Binding player.CharacterClass}"/>
+                <ListBoxItem Content="{Binding player.HitPoints}"/>
+                <ListBoxItem Content="{Binding player.Gold}"/>
+                <ListBoxItem Content="{Binding player.ExperiencePoints}"/>
+                <ListBoxItem Content="{Binding player.Level}"/>
+            </ListBox>
+            <Button Grid.Column="1" Content="Add XP" 
+                    Click="Button_Click" Height="30"
+                    VerticalAlignment="Bottom"/>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1">
-            <Frame Background="Gainsboro"></Frame>
+        <Grid Grid.Column="1" Grid.Row="1" Background="Gainsboro">
             <Label Content="Game Data"></Label>
         </Grid>
-        <Grid Grid.Row="2">
-            <Frame Background="WhiteSmoke"></Frame>
+        <Grid Grid.Row="2" Background="WhiteSmoke">
             <Label Content="Inventory/Quests"></Label>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="1">
-            <Frame Background="Crimson"></Frame>
+        <Grid Grid.Row="2" Grid.Column="1" Background="Crimson">
             <Label Content="Combat/Movement"></Label>
         </Grid>
         
