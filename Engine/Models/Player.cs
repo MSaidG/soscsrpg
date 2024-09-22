@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace Engine.Models
@@ -6,19 +7,14 @@ namespace Engine.Models
     public class Player : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName=null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private string _name { get; set; }
-        private string _characterClass { get; set; }
+        private string? _name { get; set; }
+        private string? _characterClass { get; set; }
         private int _hitPoints { get; set; }
         private int _experiencePoints { get; set; }
         private int _level {  get; set; }
         private int _gold {  get; set; }
 
-        public string Name
+        public string? Name
         { 
             get { return _name; } 
             set 
@@ -28,7 +24,7 @@ namespace Engine.Models
             } 
         }
 
-        public string CharacterClass
+        public string? CharacterClass
         {
             get { return _characterClass; }
             set
@@ -54,6 +50,7 @@ namespace Engine.Models
             set
             {
                 _experiencePoints = value;
+                Debug.WriteLine("FREE XP LOL");
                 OnPropertyChanged();
             }
         }
@@ -76,6 +73,11 @@ namespace Engine.Models
                 _gold = value;
                 OnPropertyChanged();
             }
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
