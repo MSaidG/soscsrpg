@@ -3,30 +3,78 @@
   "WorkspaceRootPath": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\factories\\randomnumbergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\factories\\itemfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\soscsrpg\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\queststatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\viewmodels\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\soscsrpg\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\viewmodels\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\world.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\factories\\worldfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\factories\\questfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\itemquantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\quest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\gameitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Said\\AppData\\Local\\SourceServer\\8075e2d768d9963fc51f24b793504c29e260320e4e98916338a33d457e55363c\\src\\libraries\\System.Private.CoreLib\\src\\System\\ThrowHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\soscsrpg\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\soscsrpg\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\soscsrpg\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|solutionrelative:assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\basenotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\engine.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\factories\\worldfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\engine.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AFED118-1AB6-49F3-AB30-671CC21125FD}|..\\Engine\\Engine.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\engine\\models\\world.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B17045B3-8C13-4B84-A381-661281954970}|soscsrpg.csproj|c:\\users\\said\\desktop\\c#test\\soscsrpg\\soscsrpg\\soscsrpg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -40,17 +88,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Player.cs",
               "RelativeDocumentMoniker": "..\\Engine\\Models\\Player.cs",
               "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Player.cs",
               "RelativeToolTip": "..\\Engine\\Models\\Player.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAkwCMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBMAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-22T20:44:01.545Z",
               "IsPinned": true,
@@ -58,13 +106,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Location.cs",
               "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Location.cs",
               "RelativeDocumentMoniker": "..\\Engine\\Models\\Location.cs",
               "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Location.cs",
               "RelativeToolTip": "..\\Engine\\Models\\Location.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-21T23:35:41.782Z",
               "IsPinned": true,
@@ -72,20 +120,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameSession.cs",
-              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\ViewModels\\GameSession.cs",
-              "RelativeDocumentMoniker": "..\\Engine\\ViewModels\\GameSession.cs",
-              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\ViewModels\\GameSession.cs",
-              "RelativeToolTip": "..\\Engine\\ViewModels\\GameSession.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGcAAAAoAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "RandomNumberGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\RandomNumberGenerator.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Factories\\RandomNumberGenerator.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\RandomNumberGenerator.cs",
+              "RelativeToolTip": "..\\Engine\\Factories\\RandomNumberGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T23:37:21.703Z",
+              "WhenOpened": "2024-09-23T17:54:27.542Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Monster.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Monster.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Models\\Monster.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Monster.cs",
+              "RelativeToolTip": "..\\Engine\\Models\\Monster.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T16:13:06.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ItemFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\ItemFactory.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Factories\\ItemFactory.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\ItemFactory.cs",
+              "RelativeToolTip": "..\\Engine\\Factories\\ItemFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T06:02:32.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -97,20 +171,201 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "QuestStatus.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\QuestStatus.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Models\\QuestStatus.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\QuestStatus.cs",
+              "RelativeToolTip": "..\\Engine\\Models\\QuestStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T15:17:46.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GameSession.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\ViewModels\\GameSession.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\ViewModels\\GameSession.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\ViewModels\\GameSession.cs",
+              "RelativeToolTip": "..\\Engine\\ViewModels\\GameSession.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T23:37:21.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAA9wA0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-22T08:49:48.439Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
+              "Title": "WorldFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\WorldFactory.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Factories\\WorldFactory.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\WorldFactory.cs",
+              "RelativeToolTip": "..\\Engine\\Factories\\WorldFactory.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCcAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T08:26:52.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "QuestFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\QuestFactory.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Factories\\QuestFactory.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\QuestFactory.cs",
+              "RelativeToolTip": "..\\Engine\\Factories\\QuestFactory.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowBcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T14:35:31.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ItemQuantity.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\ItemQuantity.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Models\\ItemQuantity.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\ItemQuantity.cs",
+              "RelativeToolTip": "..\\Engine\\Models\\ItemQuantity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T14:19:49.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Quest.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Quest.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Models\\Quest.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Quest.cs",
+              "RelativeToolTip": "..\\Engine\\Models\\Quest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T14:23:42.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GameItem.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\GameItem.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Models\\GameItem.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\GameItem.cs",
+              "RelativeToolTip": "..\\Engine\\Models\\GameItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T05:57:48.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ThrowHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\AppData\\Local\\SourceServer\\8075e2d768d9963fc51f24b793504c29e260320e4e98916338a33d457e55363c\\src\\libraries\\System.Private.CoreLib\\src\\System\\ThrowHelper.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\8075e2d768d9963fc51f24b793504c29e260320e4e98916338a33d457e55363c\\src\\libraries\\System.Private.CoreLib\\src\\System\\ThrowHelper.cs",
+              "ToolTip": "C:\\Users\\Said\\AppData\\Local\\SourceServer\\8075e2d768d9963fc51f24b793504c29e260320e4e98916338a33d457e55363c\\src\\libraries\\System.Private.CoreLib\\src\\System\\ThrowHelper.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\8075e2d768d9963fc51f24b793504c29e260320e4e98916338a33d457e55363c\\src\\libraries\\System.Private.CoreLib\\src\\System\\ThrowHelper.cs [Read Only]",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAMwCkBAAAMAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T13:05:41.992Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-23T12:48:27.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Weapon.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Weapon.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\Models\\Weapon.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\Weapon.cs",
+              "RelativeToolTip": "..\\Engine\\Models\\Weapon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T06:00:33.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\AssemblyInfo.cs",
+              "RelativeToolTip": "AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T11:52:23.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T12:48:23.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Engine.csproj",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Engine.csproj",
+              "RelativeDocumentMoniker": "..\\Engine\\Engine.csproj",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Engine.csproj",
+              "RelativeToolTip": "..\\Engine\\Engine.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-21T23:33:38.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BaseNotification.cs",
+              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\BaseNotification.cs",
+              "RelativeDocumentMoniker": "..\\Engine\\BaseNotification.cs",
+              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\BaseNotification.cs",
+              "RelativeToolTip": "..\\Engine\\BaseNotification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T05:34:27.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "World.cs",
               "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Models\\World.cs",
               "RelativeDocumentMoniker": "..\\Engine\\Models\\World.cs",
@@ -118,47 +373,31 @@
               "RelativeToolTip": "..\\Engine\\Models\\World.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T08:21:06.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T08:21:06.938Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "WorldFactory.cs",
-              "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\WorldFactory.cs",
-              "RelativeDocumentMoniker": "..\\Engine\\Factories\\WorldFactory.cs",
-              "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Factories\\WorldFactory.cs",
-              "RelativeToolTip": "..\\Engine\\Factories\\WorldFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T08:26:52.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Engine.csproj",
+              "DocumentIndex": 21,
+              "Title": "Engine",
               "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Engine.csproj",
               "RelativeDocumentMoniker": "..\\Engine\\Engine.csproj",
               "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\Engine\\Engine.csproj",
               "RelativeToolTip": "..\\Engine\\Engine.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-21T23:33:38.342Z",
+              "WhenOpened": "2024-09-22T22:29:35.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "soscsrpg",
+              "DocumentIndex": 23,
+              "Title": "soscsrpg.csproj",
               "DocumentMoniker": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\soscsrpg.csproj",
               "RelativeDocumentMoniker": "soscsrpg.csproj",
               "ToolTip": "C:\\Users\\Said\\Desktop\\C#Test\\soscsrpg\\soscsrpg\\soscsrpg.csproj",
               "RelativeToolTip": "soscsrpg.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-22T08:16:07.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T08:16:07.526Z"
             }
           ]
         }

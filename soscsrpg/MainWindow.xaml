@@ -6,11 +6,13 @@
         xmlns:local="clr-namespace:soscsrpg"
         mc:Ignorable="d"
         Title="SOSCSRPG" Height="900" Width="1600">
+    
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
     </Window.Resources>
+
     <Grid>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="5*"/>
@@ -84,9 +86,82 @@
             </Border>
             
         </Grid>
+
         <Grid Grid.Row="2" Background="WhiteSmoke">
-            <Label Content="Inventory/Quests"></Label>
+            <TabControl>
+                
+                <TabItem Header="Inventroy">
+                    <DataGrid ItemsSource="{Binding player.Inventory}" 
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            
+                            <DataGridTemplateColumn Header="Name" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}"
+                                                   TextWrapping="Wrap"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Description" Width="3*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Description}"
+                                                   TextWrapping="Wrap"
+                                                   VerticalAlignment="Center"
+/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Price" Width="0.5*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Price}"
+                                                   TextWrapping="Wrap"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+
+                <TabItem Header="Quests">
+                    <DataGrid ItemsSource="{Binding player.Quests}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+
+                            <DataGridTemplateColumn Header="Name" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Quest.Name}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Is Done" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding IsDone}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                
+            </TabControl>
         </Grid>
+        
         <Grid Grid.Row="2" Grid.Column="1" Background="Crimson">
             
             <Grid.ColumnDefinitions>

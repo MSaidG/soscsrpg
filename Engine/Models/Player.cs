@@ -1,18 +1,24 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 
 namespace Engine.Models
 {
-    public class Player : INotifyPropertyChanged
+    public class Player : BaseNotification
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
         private string? _name { get; set; }
         private string? _characterClass { get; set; }
         private int _hitPoints { get; set; }
         private int _experiencePoints { get; set; }
         private int _level {  get; set; }
         private int _gold {  get; set; }
+
+        public ObservableCollection<GameItem> Inventory { get; set; }
+        public ObservableCollection<QuestStatus> Quests { get; set; }
+        public Player()
+        {
+            Inventory = new ObservableCollection<GameItem>();
+            Quests = new ObservableCollection<QuestStatus>();
+        }
 
         public string? Name
         { 
@@ -75,9 +81,5 @@ namespace Engine.Models
             }
         }
 
-        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

@@ -5,9 +5,8 @@ using System.Diagnostics;
 
 namespace Engine.ViewModels
 {
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : BaseNotification
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
         public Player player {  get; set; }
         public World world { get; set; }
         private Location location { get; set; }
@@ -18,11 +17,12 @@ namespace Engine.ViewModels
             {
                 location = value;
 
-                OnPropertyChanged("Location");
-                OnPropertyChanged("HasLocationToNorth");
-                OnPropertyChanged("HasLocationToEast");
-                OnPropertyChanged("HasLocationToWest");
-                OnPropertyChanged("HasLocationToSouth");
+                OnPropertyChanged(nameof(Location));
+                OnPropertyChanged(nameof(HasLocationToEast));
+                OnPropertyChanged(nameof(HasLocationToNorth));
+                OnPropertyChanged(nameof(HasLocationToSouth));
+                OnPropertyChanged(nameof(HasLocationToWest));
+                GivePlayerQuestAtLocation();
 
                 Debug.WriteLine(Location.XCoordinate.ToString() + 
                     Location.YCoordinate.ToString() + 
@@ -61,47 +61,65 @@ namespace Engine.ViewModels
 
         public GameSession()
         {
-            player = new Player();
-            player.Name = "Said";
-            player.CharacterClass = "Fighter";
-            player.HitPoints = 10;
-            player.Gold = 1000;
-            player.ExperiencePoints = 0;
-            player.Level = 1;
+            player = new Player()
+            {
+                Name = "Said",
+                CharacterClass = "Fighter",
+                HitPoints = 10,
+                Gold = 1000,
+                ExperiencePoints = 0,
+                Level = 1
+            };
 
-            WorldFactory factory = new WorldFactory();
-            world = factory.CreateWorld();
+            world = WorldFactory.CreateWorld();
             Location = world.LocationAt("Home");
+
+            player.Inventory.Add(ItemFactory.CreateGameItem(1001));
+            player.Inventory.Add(ItemFactory.CreateGameItem(1002));
+            player.Inventory.Add(ItemFactory.CreateGameItem(1001));
+            //player.Inventory.Add(ItemFactory.CreateGameItem(1000));
         }
 
 
         public void MoveNorth()
         {
-            Location = world.LocationAt(Location.XCoordinate,
+            if (HasLocationToNorth) 
+                Location = world.LocationAt(Location.XCoordinate,
                                         Location.YCoordinate + 1);
         }
 
         public void MoveSouth() 
         {
-            Location = world.LocationAt(Location.XCoordinate,
+            if (HasLocationToSouth)
+                Location = world.LocationAt(Location.XCoordinate,
                                         Location.YCoordinate - 1);
         }
 
         public void MoveWest()
         {
-            Location = world.LocationAt(Location.XCoordinate - 1,
+            if (HasLocationToWest)
+                Location = world.LocationAt(Location.XCoordinate - 1,
                                         Location.YCoordinate);
         }
 
         public void MoveEast()
         {
-            Location = world.LocationAt(Location.XCoordinate + 1,
+            if (HasLocationToEast)
+                Location = world.LocationAt(Location.XCoordinate + 1,
                                         Location.YCoordinate);
         }
 
-        protected void OnPropertyChanged(string propertyName)
+        private void GivePlayerQuestAtLocation()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            foreach (Quest quest in location.QuestAvailable)
+            {
+                if (player.Quests.
+                    Any(q => q.Quest.Id == quest.Id))
+                {
+                    player.Quests.Add(new QuestStatus(quest));
+                }
+            }
         }
+
     }
 }

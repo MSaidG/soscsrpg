@@ -2,9 +2,9 @@
 
 namespace Engine.Factories
 {
-    internal class WorldFactory
+    internal static class WorldFactory
     {
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World world = new World();
 
@@ -36,6 +36,8 @@ namespace Engine.Factories
             world.AddLocation(0, 2, "Herbalist's garden",
                 "There are many plants here, with snakes hiding behind them.",
                 "/soscsrpg;component/Images/Locations/HerbalistsGarden.png");
+
+            world.LocationAt(0, 1).QuestAvailable.Add(QuestFactory.GetQuest(1));
             return world;
         }
     }
