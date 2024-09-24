@@ -13,7 +13,7 @@
             loc.YCoordinate = yCoordinate;
             loc.Name = name;
             loc.Description = description;  
-            loc.ImagePath = imagePath;
+            loc.ImagePath = $"/soscsrpg;component/Images/Locations/{imagePath}";
             _locations.Add(loc);
         }
 

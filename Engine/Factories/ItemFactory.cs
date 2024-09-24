@@ -5,10 +5,9 @@ namespace Engine.Factories
     public static class ItemFactory
     {
 
-        private static List<GameItem> _standardGameItems;
+        private static readonly List<GameItem> _standardGameItems = new List<GameItem>();
         static ItemFactory()
         {
-            _standardGameItems = new List<GameItem>();
             _standardGameItems.Add(new Weapon(1001, "Pointy Stick",
                 "Simple stick that can be used" +
                 " as a weapon.", 1, 1, 2));
@@ -35,6 +34,10 @@ namespace Engine.Factories
                 FirstOrDefault(item => item.Id == id);
             if (standardItem != null)
             {
+                if (standardItem is Weapon standardWeapon)
+                {
+                    return standardWeapon.Clone();
+                }
                 return standardItem.Clone();
             }
             return null;

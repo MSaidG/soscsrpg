@@ -12,7 +12,7 @@ namespace Engine.Factories
             List<ItemQuantity> itemsToComplete = [];
             List<ItemQuantity> rewardItems = [];
 
-            itemsToComplete.Add(new ItemQuantity(9001, 5));
+            itemsToComplete.Add(new ItemQuantity(9001, 1));
             rewardItems.Add(new ItemQuantity(1002, 1));
 
             _quests.Add(new Quest(1, "Clear the herb garden",

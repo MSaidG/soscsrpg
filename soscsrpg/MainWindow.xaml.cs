@@ -1,16 +1,27 @@
 ﻿using System.Windows;
+using System.Windows.Documents;
+using Engine.EventArgs;
 using Engine.ViewModels;
 
 namespace soscsrpg
 {
     public partial class MainWindow : Window
     {
-        private GameSession _gameSession;
+        private readonly GameSession _gameSession = new GameSession();
         public MainWindow()
         {
             InitializeComponent();
-            _gameSession = new GameSession();
+
+            _gameSession.OnMessageRaised += OnGameMessageRaised;
             DataContext = _gameSession;
+        }
+
+        private void OnGameMessageRaised(object? sender, GameMessageEventArgs e)
+        {
+            GameMessages.Document.Blocks.Add(
+                new Paragraph(
+                    new Run(e.Message)));
+            GameMessages.ScrollToEnd();
         }
 
         private void MoveNorth_Click(object sender, RoutedEventArgs e)
@@ -35,7 +46,12 @@ namespace soscsrpg
 
         private void AddXP_Click(object sender, RoutedEventArgs e)
         {
-            _gameSession.player.ExperiencePoints += 10;
+            _gameSession.player.XP += 10;
+        }
+
+        private void AttackMonster_Click(object sender, RoutedEventArgs e)
+        {
+            _gameSession.AttackCurrentMonster();
         }
     }
 }

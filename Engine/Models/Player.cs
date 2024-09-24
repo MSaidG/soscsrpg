@@ -3,22 +3,54 @@ using System.Diagnostics;
 
 namespace Engine.Models
 {
+
     public class Player : BaseNotification
     {
-        private string? _name { get; set; }
-        private string? _characterClass { get; set; }
-        private int _hitPoints { get; set; }
-        private int _experiencePoints { get; set; }
-        private int _level {  get; set; }
-        private int _gold {  get; set; }
-
-        public ObservableCollection<GameItem> Inventory { get; set; }
-        public ObservableCollection<QuestStatus> Quests { get; set; }
         public Player()
         {
             Inventory = new ObservableCollection<GameItem>();
             Quests = new ObservableCollection<QuestStatus>();
         }
+
+        public void AddItemToInventory(GameItem item)
+        {
+            Inventory.Add(item);
+            OnPropertyChanged(nameof(Weapons));
+        }
+
+        public void RemoveItemFromInventory(GameItem item)
+        {
+            Inventory.Remove(item);
+            OnPropertyChanged(nameof(Weapons));
+        }
+
+        public bool HasAllTheseItems(List<ItemQuantity> items)
+        {
+            foreach (ItemQuantity item in items)
+            {
+                if (Inventory.Count(i => i.Id == item.ItemID) > item.Quantity)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        #region Properties
+
+        public ObservableCollection<GameItem> Inventory { get; set; }
+        public ObservableCollection<QuestStatus> Quests { get; set; }
+        public List<GameItem> Weapons =>
+            Inventory.Where(i => i is Weapon).ToList();
+
+        private string? _name { get; set; }
+        private string? _characterClass { get; set; }
+        private int _hitPoints { get; set; }
+        private int _xp { get; set; }
+        private int _level {  get; set; }
+        private int _gold {  get; set; }
+
 
         public string? Name
         { 
@@ -50,12 +82,12 @@ namespace Engine.Models
             }
         }
 
-        public int ExperiencePoints
+        public int XP
         {
-            get { return _experiencePoints; }
+            get { return _xp; }
             set
             {
-                _experiencePoints = value;
+                _xp = value;
                 Debug.WriteLine("FREE XP LOL");
                 OnPropertyChanged();
             }
@@ -81,5 +113,6 @@ namespace Engine.Models
             }
         }
 
+        #endregion
     }
 }

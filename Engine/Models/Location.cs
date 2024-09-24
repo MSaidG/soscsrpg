@@ -26,7 +26,7 @@ namespace Engine.Models
             else
             {
                 MonsterEncounterAvailable.Add(
-                    new MonsterEncounter(monsterID, chanceOfEncountering))
+                    new MonsterEncounter(monsterID, chanceOfEncountering));
             }
         }
 

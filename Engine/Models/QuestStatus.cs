@@ -4,11 +4,11 @@
     {
         public QuestStatus(Quest quest)
         {
-            Quest = quest;
+            PlayerQuest = quest;
             IsDone = false;
         }
 
-        public Quest Quest { get; set; }
+        public Quest PlayerQuest { get; set; }
         public bool IsDone { get; set; }
 
 
