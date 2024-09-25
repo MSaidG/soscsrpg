@@ -39,8 +39,14 @@ namespace Engine.Factories
 
             world.LocationAt(-2, -1).AddMonster(2, 100);
             world.LocationAt(2, 0).AddMonster(3, 100);
-            world.LocationAt(0, 1).QuestAvailable.Add(QuestFactory.GetQuest(1));
             world.LocationAt(0, 2).AddMonster(1, 100);
+
+            world.LocationAt(-1, -1).Trader = TraderFactory.GetTrader("Farmer Ted");
+            world.LocationAt(-1, 0).Trader = TraderFactory.GetTrader("Susan");
+            world.LocationAt(0, 1).Trader = TraderFactory.GetTrader("Pete The Herbalist");
+
+            world.LocationAt(0, 1).QuestAvailable.Add(QuestFactory.GetQuest(1));
+
             return world;
         }
     }

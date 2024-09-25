@@ -46,7 +46,7 @@
             <ListBox Background="Transparent" Grid.Column="1" BorderThickness="0" Margin="0,10,10,10">
                 <ListBoxItem Content="{Binding player.Name}"/>
                 <ListBoxItem Content="{Binding player.CharacterClass}"/>
-                <ListBoxItem Content="{Binding player.HitPoints}"/>
+                <ListBoxItem Content="{Binding player.CurrentHitPoints}"/>
                 <ListBoxItem Content="{Binding player.Gold}"/>
                 <ListBoxItem Content="{Binding player.XP}"/>
                 <ListBoxItem Content="{Binding player.Level}"/>
@@ -127,7 +127,7 @@
                                 HorizontalAlignment="Center"
                                 Orientation="Horizontal">
                         <TextBlock>Current Hit Points:</TextBlock>
-                        <TextBlock Text="{Binding CurrentMonster.HitPoints}"/>
+                        <TextBlock Text="{Binding CurrentMonster.CurrentHitPoints}"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -278,9 +278,14 @@
                         Click="MoveSouth_Click"
                         Visibility="{Binding HasLocationToSouth, 
                         Converter={StaticResource BooleanToVisibility}}"/>
-                <Button Grid.Row="1" Grid.Column="1" Content="ADD XP"
-                        Name="AddXP"
+                <Button Grid.Row="0" Grid.Column="0" Content="ADD XP"
+                        Height="30" Width="70"
                         Click="AddXP_Click"/>
+                <Button Grid.Row="1" Grid.Column="1" Content="Trade"
+                        Height="30" Width="70"
+                        Click="Trade_Click"
+                        Visibility="{Binding HasTrader,
+                        Converter={StaticResource BooleanToVisibility}}"/>
             </Grid>
 
         </Grid>

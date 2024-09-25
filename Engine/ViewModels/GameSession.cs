@@ -11,6 +11,7 @@ namespace Engine.ViewModels
 
         #region Properties
         private Monster? currentMonster;
+        private Trader _currentTrader;
         private Location location;
         public Player player {  get; set; }
         public World world { get; set; }
@@ -29,6 +30,8 @@ namespace Engine.ViewModels
                 CompleteQuestAtLocation();
                 GivePlayerQuestAtLocation();
                 GetMonsterAtLocation();
+
+                CurrentTrader = location.Trader;
 
                 Debug.WriteLine(Location.XCoordinate.ToString() + 
                     Location.YCoordinate.ToString() + 
@@ -53,8 +56,22 @@ namespace Engine.ViewModels
                 }
             }
         }
+
+        public Trader CurrentTrader
+        {
+            get { return _currentTrader; }
+            set
+            {
+                _currentTrader = value;
+
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(HasTrader));
+            }
+        }
+
         public Weapon CurrentWeapon { get; set; }
 
+        public bool HasTrader => CurrentTrader != null;
         public bool HasMonster => CurrentMonster != null;
         public bool HasLocationToNorth =>
                 world.LocationAt(Location.XCoordinate, Location.YCoordinate + 1) != null;
@@ -72,7 +89,8 @@ namespace Engine.ViewModels
             {
                 Name = "Said",
                 CharacterClass = "Fighter",
-                HitPoints = 10,
+                CurrentHitPoints = 10,
+                MaxHitPoints = 10,
                 Gold = 1000,
                 XP = 0,
                 Level = 1
@@ -233,12 +251,12 @@ namespace Engine.ViewModels
             }
             else
             {
-                CurrentMonster.HitPoints -= damageToMonster;
+                CurrentMonster.CurrentHitPoints -= damageToMonster;
                 RaiseMessage($"You hit the {CurrentMonster.Name} " +
                     $"dor {damageToMonster} points.");
             }
 
-            if (CurrentMonster.HitPoints <= 0)
+            if (CurrentMonster.CurrentHitPoints <= 0)
             {
                 RaiseMessage("");
                 RaiseMessage($"You defeated the {CurrentMonster.Name}!");
@@ -246,14 +264,13 @@ namespace Engine.ViewModels
                 player.XP += currentMonster.RewardXP;
                 RaiseMessage($"You gain {currentMonster.RewardXP} XP.");
 
-                player.Gold += currentMonster.RewardGold;
-                RaiseMessage($"You gain {currentMonster.RewardGold} gold.");
+                player.Gold += currentMonster.Gold;
+                RaiseMessage($"You gain {currentMonster.Gold} gold.");
 
-                foreach (ItemQuantity itemQuantity in CurrentMonster.Inventory)
+                foreach (GameItem item in CurrentMonster.Inventory)
                 {
-                    GameItem item = ItemFactory.CreateGameItem(itemQuantity.ItemID);
                     player.AddItemToInventory(item);
-                    RaiseMessage($"You found {itemQuantity.Quantity} {item.Name}.");
+                    RaiseMessage($"You found one {item.Name}.");
                 }
 
                 GetMonsterAtLocation();
@@ -269,12 +286,12 @@ namespace Engine.ViewModels
                 }
                 else
                 {
-                    player.HitPoints -= damageToPlayer;
+                    player.CurrentHitPoints -= damageToPlayer;
                     RaiseMessage($"The {CurrentMonster.Name} " +
                         $"hit you for {damageToPlayer} hit points.");
                 }
 
-                if (player.HitPoints <= 0)
+                if (player.CurrentHitPoints <= 0)
                 {
                     RaiseMessage("");
                     RaiseMessage($"The {CurrentMonster.Name} " +
@@ -282,7 +299,7 @@ namespace Engine.ViewModels
 
 
                     Location = world.LocationAt(0, -1);
-                    player.HitPoints = player.Level * 10;
+                    player.CurrentHitPoints = player.Level * 10;
                     RaiseMessage("");
                     RaiseMessage($"You revived at your home.");
                 }
