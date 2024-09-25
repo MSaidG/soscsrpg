@@ -46,7 +46,7 @@ namespace soscsrpg
 
         private void AddXP_Click(object sender, RoutedEventArgs e)
         {
-            _gameSession.player.XP += 10;
+            _gameSession.Player.AddXP(100);
         }
 
         private void AttackMonster_Click(object sender, RoutedEventArgs e)

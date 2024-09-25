@@ -4,14 +4,25 @@ namespace Engine.Models
 {
     public class Location
     {
-        public int XCoordinate { get; set; }
-        public int YCoordinate { get; set; }
-        public string? Name { get; set; }
-        public string? Description { get; set; }
-        public string? ImagePath { get; set; }
-        public List<Quest> QuestAvailable { get; set; } 
+
+        public Location(int xCoordinate, int yCoordinate, string name, 
+            string description, string imagePath)
+        {
+            XCoordinate = xCoordinate;
+            YCoordinate = yCoordinate;
+            Name = name;
+            Description = description;
+            ImagePath = imagePath;
+        }
+
+        public int XCoordinate { get; }
+        public int YCoordinate { get; }
+        public string? Name { get; }
+        public string? Description { get; }
+        public string? ImagePath { get; }
+        public List<Quest> QuestAvailable { get; } 
             = new List<Quest>();
-        public List<MonsterEncounter> MonsterAvailable { get; set; }
+        public List<MonsterEncounter> MonsterAvailable { get; }
             = new List<MonsterEncounter>();
 
         public Trader Trader { get; set; }

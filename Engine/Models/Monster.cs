@@ -3,22 +3,18 @@
     public class Monster : LivingEntity
     {
         public Monster(string name, string imagePath, int maxHitPoints,
-            int hitPoints, int minDamage, int maxDamage,
-            int rewardXP, int rewardGold)
+            int currentHitPoints, int minDamage, int maxDamage,
+            int rewardXP, int gold) : base(name, currentHitPoints, maxHitPoints, gold)
         {
-            Name = name;
             ImagePath = $"/soscsrpg;component/Images/Monsters/{imagePath}";
-            MaxHitPoints = maxHitPoints;
-            CurrentHitPoints = hitPoints;
             MaxDamage = maxDamage;
             MinDamage = minDamage;
             RewardXP = rewardXP;
-            Gold = rewardGold;
         }
 
-        public string ImagePath { get; set; }
-        public int MinDamage { get; set; }
-        public int MaxDamage { get; set; }
-        public int RewardXP { get; private set; }
+        public string ImagePath { get;  }
+        public int MinDamage { get;  }
+        public int MaxDamage { get;  }
+        public int RewardXP { get; }
     }
 }

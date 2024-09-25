@@ -6,8 +6,11 @@ namespace Engine.Models
 
     public class Player : LivingEntity
     {
-        public Player()
+        public EventHandler OnLeveledUp;
+        public Player(string name, string characterClass, int xp, int maxHitPoints, int currentHitPoints, int gold) : base(name, currentHitPoints, maxHitPoints, gold)
         {
+            CharacterClass = characterClass;
+            XP = xp;
             Quests = new ObservableCollection<QuestStatus>();
         }
 
@@ -48,19 +51,27 @@ namespace Engine.Models
             set
             {
                 _xp = value;
-                Debug.WriteLine("FREE XP LOL");
                 OnPropertyChanged();
+                SetLevelAndMaxHitPoints();
             }
         }
 
-        public int Level
+        private void SetLevelAndMaxHitPoints()
         {
-            get { return _level; }
-            set
+            int originalLevel = Level;
+            Level = (XP / 100) + 1;
+            
+            if (Level != originalLevel)
             {
-                _level = value;
-                OnPropertyChanged();
+                MaxHitPoints = Level * 10;
+                CurrentHitPoints += 10;
+                OnLeveledUp?.Invoke(this, System.EventArgs.Empty);
             }
+        }
+
+        public void AddXP(int xp)
+        {
+            XP += xp;
         }
 
         #endregion

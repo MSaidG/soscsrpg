@@ -15,23 +15,23 @@ namespace soscsrpg
 
         private void Sell_Click(object sender, RoutedEventArgs e)
         {
-            if (((FrameworkElement)sender).DataContext is GameItem item)
+            if (((FrameworkElement)sender).DataContext is GroupedInventoryItem groupInventory)
             {
-                Session.player.Gold += item.Price;
-                Session.CurrentTrader.AddItemToInventory(item);
-                Session.player.RemoveItemFromInventory(item);
+                Session.Player.ReceiveGold(groupInventory.Item.Price);
+                Session.CurrentTrader.AddItemToInventory(groupInventory.Item);
+                Session.Player.RemoveItemFromInventory(groupInventory.Item);
             }
         }
 
         private void Buy_Click(object sender, RoutedEventArgs e)
         {
-            if (((FrameworkElement)sender).DataContext is GameItem item)
+            if (((FrameworkElement)sender).DataContext is GroupedInventoryItem groupInventory)
             {
-                if (Session.player.Gold >= item.Price)
+                if (Session.Player.Gold >= groupInventory.Item.Price)
                 {
-                    Session.player.Gold -= item.Price;
-                    Session.CurrentTrader.RemoveItemFromInventory(item);
-                    Session.player.AddItemToInventory(item);
+                    Session.Player.SpendGold(groupInventory.Item.Price);
+                    Session.CurrentTrader.RemoveItemFromInventory(groupInventory.Item);
+                    Session.Player.AddItemToInventory(groupInventory.Item);
                 }
                 else
                 {

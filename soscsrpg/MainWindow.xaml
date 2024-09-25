@@ -44,12 +44,12 @@
                 <ListBoxItem Content="Level: "/>
             </ListBox>
             <ListBox Background="Transparent" Grid.Column="1" BorderThickness="0" Margin="0,10,10,10">
-                <ListBoxItem Content="{Binding player.Name}"/>
-                <ListBoxItem Content="{Binding player.CharacterClass}"/>
-                <ListBoxItem Content="{Binding player.CurrentHitPoints}"/>
-                <ListBoxItem Content="{Binding player.Gold}"/>
-                <ListBoxItem Content="{Binding player.XP}"/>
-                <ListBoxItem Content="{Binding player.Level}"/>
+                <ListBoxItem Content="{Binding Player.Name}"/>
+                <ListBoxItem Content="{Binding Player.CharacterClass}"/>
+                <ListBoxItem Content="{Binding Player.CurrentHitPoints}"/>
+                <ListBoxItem Content="{Binding Player.Gold}"/>
+                <ListBoxItem Content="{Binding Player.XP}"/>
+                <ListBoxItem Content="{Binding Player.Level}"/>
             </ListBox>
             
         </Grid>
@@ -91,7 +91,7 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" HorizontalAlignment="Center" 
-                                Text="{Binding Location.Name, Mode=TwoWay}"/>
+                                Text="{Binding Location.Name}"/>
                     <Image Grid.Row="1" HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Height="125"
@@ -138,15 +138,16 @@
             <TabControl>
                 
                 <TabItem Header="Inventroy">
-                    <DataGrid ItemsSource="{Binding player.Inventory}" 
+                    <DataGrid ItemsSource="{Binding Player.GroupedInventory}" 
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
                             
-                            <DataGridTemplateColumn Header="Name" Width="*">
+                            <DataGridTemplateColumn Header="Name" Width="Auto"
+                                                    IsReadOnly="True">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Name}"
+                                        <TextBlock Text="{Binding Item.Name}"
                                                    TextWrapping="Wrap"
                                                    VerticalAlignment="Center"
                                                    HorizontalAlignment="Center"/>
@@ -154,21 +155,33 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="Description" Width="3*">
+                            <DataGridTemplateColumn Header="Description" Width="3*"
+                                                    IsReadOnly="True">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Description}"
+                                        <TextBlock Text="{Binding Item.Description}"
                                                    TextWrapping="Wrap"
-                                                   VerticalAlignment="Center"
-/>
+                                                   VerticalAlignment="Center"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="Price" Width="0.5*">
+                            <DataGridTemplateColumn Header="Count" Width="Auto"
+                                                    IsReadOnly="True">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Price}"
+                                        <TextBlock Text="{Binding Count}"
+                                                   TextWrapping="Wrap"
+                                                   VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Price" Width="0.6*"
+                                                    IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Item.Price}"
                                                    TextWrapping="Wrap"
                                                    VerticalAlignment="Center"
                                                    HorizontalAlignment="Center"/>
@@ -181,7 +194,7 @@
                 </TabItem>
 
                 <TabItem Header="Quests">
-                    <DataGrid ItemsSource="{Binding player.Quests}"
+                    <DataGrid ItemsSource="{Binding Player.Quests}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
@@ -189,7 +202,7 @@
                             <DataGridTemplateColumn Header="Name" Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Quest.Name}"/>
+                                        <TextBlock Text="{Binding PlayerQuest.Name}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -232,7 +245,7 @@
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
                 <ComboBox Grid.Row="0" Grid.Column="0"
-                          ItemsSource="{Binding player.Weapons}"
+                          ItemsSource="{Binding Player.Weapons}"
                           SelectedItem="{Binding CurrentWeapon}"
                           DisplayMemberPath="Name"
                           SelectedValuePath="ID"/>

@@ -8,13 +8,8 @@
             int yCoordinate, string name,
             string description, string imagePath)
         {
-            Location loc = new Location();
-            loc.XCoordinate = xCoordinate;
-            loc.YCoordinate = yCoordinate;
-            loc.Name = name;
-            loc.Description = description;  
-            loc.ImagePath = $"/soscsrpg;component/Images/Locations/{imagePath}";
-            _locations.Add(loc);
+            _locations.Add(new Location(xCoordinate, yCoordinate, name, description, 
+                $"/soscsrpg;component/Images/Locations/{imagePath}"));
         }
 
 

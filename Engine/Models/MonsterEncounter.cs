@@ -8,7 +8,7 @@
             ChanceOfEncountering = chanceOfEncountering;
         }
 
-        public int MonsterID { get; set; }
+        public int MonsterID { get; }
         public int ChanceOfEncountering { get; set; }
     }
 }
