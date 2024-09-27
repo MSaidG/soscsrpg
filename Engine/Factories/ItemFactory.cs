@@ -1,47 +1,92 @@
 ﻿using Engine.Actions;
 using Engine.Models;
+using System.Xml;
 
 namespace Engine.Factories
 {
     public static class ItemFactory
     {
-
+        private const string GAME_DATA_FILENAME = ".\\GameData\\GameItems.xml";
         private static readonly List<GameItem> _standardGameItems = new List<GameItem>();
         static ItemFactory()
         {
-            BuildWeapon(1001, "Pointy Stick",
-                "Simple stick that can be used" +
-                " as a weapon.", 1, 1, 2);
-            BuildWeapon(1002, "Rusty Sword",
-                "Old rusty sword that can still" +
-                " be used as weapon.", 1, 1, 2);
-            BuildWeapon(1501, "Snake Fangs",
-                "Old rusty sword that can still" +
-                " be used as weapon.", 0, 0, 2);
-            BuildWeapon(1502, "Rat Claws",
-                "Old rusty sword that can still" +
-                " be used as weapon.",0, 0, 2);
-            BuildWeapon(1503, "Spider Fangs",
-                "Old rusty sword that can still" +
-                " be used as weapon.", 0, 0, 4);
-            BuildHealingItem(2001, "Granola bar",
-                "High protein bar that heal who" +
-                " consume it.", 5, 2);
-            BuildMiscellaneousItem(9001, "Snake fang", 
-                "Fang of a dead snake", 1);
-            BuildMiscellaneousItem(9002, "Snake skin",
-                "Skin of a dead snake", 2);
-            BuildMiscellaneousItem(9003, "Rat tail",
-                "Tail of a dead rat", 1);
-            BuildMiscellaneousItem(9004, "Rat fur",
-                "Skin of a dead rat", 2);
-            BuildMiscellaneousItem(9005, "Spider fang",
-                "Fang of a dead spider", 1);
-            BuildMiscellaneousItem(9006, "Spider silk",
-                "Silk of a dead spider", 2);
-            BuildMiscellaneousItem(3001, "Oats", "Ingredient", 1);
-            BuildMiscellaneousItem(3002, "Honey", "Ingredient", 2);
-            BuildMiscellaneousItem(3003, "Raisins", "Ingredient", 2);
+            if (File.Exists(GAME_DATA_FILENAME))
+            {
+                XmlDocument data = new XmlDocument();
+                data.LoadXml(File.ReadAllText(GAME_DATA_FILENAME));
+                LoadItemsFromNodes(data.SelectNodes("/GameItems/Weapons/Weapon"));
+                LoadItemsFromNodes(data.SelectNodes("/GameItems/HealingItems/HealingItem"));
+                LoadItemsFromNodes(data.SelectNodes("/GameItems/MiscellaneousItems/MiscellaneousItem"));
+            }
+            else
+            {
+                throw new FileNotFoundException($"Missing data file: {GAME_DATA_FILENAME}");
+            }
+        }
+
+        private static void LoadItemsFromNodes(XmlNodeList nodes)
+        {
+            if (nodes == null) return;
+
+            foreach (XmlNode node in nodes)
+            {
+                GameItem.ItemType itemType = DetermineItemType(node.Name);
+                GameItem gameItem = new GameItem(itemType,
+                    GetXmlAttributesAsInt(node, "ID"),
+                    GetXmlAttributesAsString(node, "Name"),
+                    GetXmlAttributesAsString(node, "Description"),
+                    GetXmlAttributesAsInt(node, "Price"),
+                    itemType == GameItem.ItemType.Weapon);
+
+                if (itemType == GameItem.ItemType.Weapon)
+                {
+                    gameItem.Action = new AttackWithWeapon(gameItem,
+                        GetXmlAttributesAsInt(node, "MinDamage"),
+                        GetXmlAttributesAsInt(node, "MaxDamage") );
+                }
+                else if (itemType == GameItem.ItemType.Consumable)
+                {
+                    gameItem.Action = new Heal(gameItem,
+                        GetXmlAttributesAsInt(node, "HitPointsToHeal"));
+                }
+                _standardGameItems.Add(gameItem);
+            }
+
+        }
+
+        private static string GetXmlAttributesAsString(XmlNode node, string attributeName)
+        {
+            return GetXmlAttribute(node, attributeName);
+        }
+
+
+        private static int GetXmlAttributesAsInt(XmlNode node, string attributeName)
+        {
+            return Convert.ToInt32(GetXmlAttribute(node, attributeName));
+        }
+
+        private static string GetXmlAttribute(XmlNode node, string attributeName)
+        {
+            XmlAttribute? attribute = node.Attributes?[attributeName];
+            if (attribute == null)
+            {
+                throw new ArgumentException(
+                    $"The attribute '{attributeName}' does not exist.");
+            }
+            return attribute.Value;
+        }
+
+        private static GameItem.ItemType DetermineItemType(string itemType)
+        {
+            switch (itemType)
+            {
+                case "Weapon":
+                    return GameItem.ItemType.Weapon;
+                case "HealingItem":
+                    return GameItem.ItemType.Consumable;
+                default:
+                    return GameItem.ItemType.Miscellaneous;
+            }
         }
 
         public static GameItem? CreateGameItem(int id)
@@ -59,34 +104,6 @@ namespace Engine.Factories
                 item => item.Name.Equals(name))?.
                 Clone();
         }
-
-        private static void BuildMiscellaneousItem(int id, string name, 
-            string description , int price)
-        {
-            _standardGameItems.Add(new GameItem(GameItem.ItemType.Miscellaneous,
-                id, name, description, price));
-        }
-
-        private static void BuildWeapon(int id, string name, 
-            string description, int price, int minDamage, int maxDamage)
-        {
-            GameItem weapon = new GameItem(GameItem.ItemType.Weapon, 
-                id, name, description, price, true);
-
-            weapon.Action = new AttackWithWeapon(weapon, minDamage, maxDamage);
-            _standardGameItems.Add(weapon);
-        }
-
-        private static void BuildHealingItem(int id, string name, 
-            string description, int price, int hitPoints)
-        {
-            GameItem item = new GameItem(GameItem.ItemType.Consumable,
-                id, name, description, price);
-
-            item.Action = new Heal(item, hitPoints);
-            _standardGameItems.Add(item);
-        }
-
         public static string ItemName(int id)
         {
             return _standardGameItems.FirstOrDefault(i => i.Id == id)?.Name ?? "";
