@@ -1,4 +1,6 @@
-﻿namespace Engine.Models
+﻿using Engine.Factories;
+
+namespace Engine.Models
 {
     public class ItemQuantity
     {
@@ -10,6 +12,9 @@
             Quantity = quantity;
         }
 
-
+        public override string ToString()
+        {
+            return ItemFactory.ItemName(ItemID);
+        }
     }
 }

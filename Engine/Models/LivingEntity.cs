@@ -4,10 +4,16 @@ namespace Engine.Models
 {
     public abstract class LivingEntity : BaseNotification
     {
+        public EventHandler<string> OnActionPerformed;
         public EventHandler OnKilled;
         private void RaiseOnKilledEvent()
         {
             OnKilled?.Invoke(this, new System.EventArgs());
+        }
+
+        private void RaiseActionPerformedEvent(object sender, string result)
+        {
+            OnActionPerformed?.Invoke(this, result);
         }
 
         protected LivingEntity(string name, int currentHitPoints, int maxHitPoints, int gold)
@@ -83,7 +89,8 @@ namespace Engine.Models
             Inventory.Remove(item);
 
             GroupedInventoryItem groupedInventoryItem = item.IsUnique ?
-                GroupedInventory.FirstOrDefault(gi => gi.Item == item) : GroupedInventory.FirstOrDefault(gi => gi.Item.Id == item.Id);
+                GroupedInventory.FirstOrDefault(gi => gi.Item == item) : 
+                GroupedInventory.FirstOrDefault(gi => gi.Item.Id == item.Id);
 
             if (groupedInventoryItem != null)
             {
@@ -98,6 +105,43 @@ namespace Engine.Models
             }
 
             OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged(nameof(Consumables));
+            OnPropertyChanged(nameof(HasConsumable));
+        }
+
+        public void RemoveItemsFromInventory(List<ItemQuantity> items)
+        {
+            foreach (ItemQuantity item in items)
+            {
+                for (int i = 0; i < item.Quantity; i++)
+                {
+                    RemoveItemFromInventory(Inventory.First(i =>
+                    i.Id == item.ItemID));
+                }
+            }
+        }
+
+        public bool HasAllTheseItems(List<ItemQuantity> items)
+        {
+            foreach (ItemQuantity item in items)
+            {
+                if (Inventory.Count(i => i.Id == item.ItemID) < item.Quantity)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public void UseCurrentWeaponOn(LivingEntity target)
+        {
+            CurrentWeapon.PerformAction(this, target);
+        }
+
+        public void UseCurrentConsumable()
+        {
+            CurrentConsumable.PerformAction(this, this);
+            RemoveItemFromInventory(CurrentConsumable);
         }
 
         private string _name;
@@ -105,11 +149,17 @@ namespace Engine.Models
         private int _maxHitPoints;
         private int _gold;
         private int _level;
+        private GameItem _currentWeapon;
+        private GameItem _currentConsumable;
 
         public ObservableCollection<GameItem> Inventory { get; set; }
         public ObservableCollection<GroupedInventoryItem> GroupedInventory {  get; set; }
-        public List<GameItem> Weapons => Inventory.Where(i => i is Weapon).ToList();
+        public List<GameItem> Weapons => Inventory.Where(
+            i => i.Type == GameItem.ItemType.Weapon).ToList();
+        public List<GameItem> Consumables => Inventory.Where(
+            i => i.Type == GameItem.ItemType.Consumable).ToList();
         public bool IsDead => CurrentHitPoints <= 0;
+        public bool HasConsumable => Consumables.Any();
 
         public string Name { 
             get { return _name; } 
@@ -156,6 +206,44 @@ namespace Engine.Models
             set
             {
                 _level = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public GameItem CurrentWeapon
+        {
+            get => _currentWeapon;
+            set
+            {
+                if (_currentWeapon != null)
+                {
+                    _currentWeapon.Action.OnActionPerformed -=
+                        RaiseActionPerformedEvent;
+                }
+                _currentWeapon = value;
+                if (_currentWeapon != null)
+                {
+                    _currentWeapon.Action.OnActionPerformed +=
+                        RaiseActionPerformedEvent;
+                }
+                OnPropertyChanged();
+            }
+        }
+
+        public GameItem CurrentConsumable
+        {
+            get => _currentConsumable;
+            set
+            {
+                if (_currentConsumable != null)
+                {
+                    _currentConsumable.Action.OnActionPerformed -= RaiseActionPerformedEvent;
+                }
+                _currentConsumable = value;
+                if (_currentConsumable != null)
+                {
+                    _currentConsumable.Action.OnActionPerformed += RaiseActionPerformedEvent;
+                }
                 OnPropertyChanged();
             }
         }

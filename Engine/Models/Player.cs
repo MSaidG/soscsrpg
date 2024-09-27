@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace Engine.Models
 {
@@ -12,24 +11,13 @@ namespace Engine.Models
             CharacterClass = characterClass;
             XP = xp;
             Quests = new ObservableCollection<QuestStatus>();
-        }
-
-        public bool HasAllTheseItems(List<ItemQuantity> items)
-        {
-            foreach (ItemQuantity item in items)
-            {
-                if (Inventory.Count(i => i.Id == item.ItemID) < item.Quantity)
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            Recipes = new ObservableCollection<Recipe>();
         }
 
         #region Properties
 
         public ObservableCollection<QuestStatus> Quests { get; set; }
+        public ObservableCollection<Recipe> Recipes { get; set; }
 
         private string? _characterClass { get; set; }
         private int _xp { get; set; }
@@ -64,8 +52,19 @@ namespace Engine.Models
             if (Level != originalLevel)
             {
                 MaxHitPoints = Level * 10;
-                CurrentHitPoints += 10;
+                if (MaxHitPoints != 10)
+                { 
+                    CurrentHitPoints += 10;
+                }
                 OnLeveledUp?.Invoke(this, System.EventArgs.Empty);
+            }
+        }
+
+        public void LearnRecipe(Recipe recipe)
+        {
+            if (!Recipes.Any(x => x.Id == recipe.Id))
+            {
+                Recipes.Add(recipe);
             }
         }
 
