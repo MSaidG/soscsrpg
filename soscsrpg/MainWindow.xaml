@@ -97,7 +97,8 @@
                            VerticalAlignment="Center"
                            Height="125"
                            Width="125"
-                           Source="{Binding Location.ImagePath}"/>
+                           Source="{Binding Location.ImagePath,
+                                    Converter={StaticResource FileToBitmapConverter}}"/>
                     <TextBlock Grid.Row="2"
                                HorizontalAlignment="Center"
                                Text="{Binding Location.Description}"
@@ -116,12 +117,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" HorizontalAlignment="Center" 
-                                Text="{Binding CurrentMonster.Name, Mode=TwoWay}"/>
+                                Text="{Binding CurrentMonster.Name}"/>
                     <Image Grid.Row="1" HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Height="125"
                            Width="125"
-                           Source="{Binding CurrentMonster.ImagePath}"/>
+                           Source="{Binding CurrentMonster.ImagePath,
+                                    Converter={StaticResource FileToBitmapConverter}}"/>
                     <StackPanel Grid.Row="2"
                                 Visibility="{Binding HasMonster, 
                         Converter={StaticResource BooleanToVisibility}}"

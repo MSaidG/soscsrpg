@@ -82,6 +82,8 @@ namespace Engine.Models
             }
 
             OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged(nameof(Consumables));
+            OnPropertyChanged(nameof(HasConsumable));
         }
 
         public void RemoveItemFromInventory(GameItem item)
@@ -166,7 +168,7 @@ namespace Engine.Models
             set 
             { 
                 _name = value; 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 

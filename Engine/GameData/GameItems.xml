@@ -8,7 +8,7 @@
     <Weapon ID="1503" Name="Spider fang" Description="Fang of a big mutated spider" Price="0" MinDamage="0" MaxDamage="4"/>
   </Weapons>
   <HealingItems>
-    <HealingItem ID="2001" Name="Granola bar" Description="" Price="5" HitPointsToHeal="2"/>
+    <HealingItem ID="2001" Name="Granola bar" Description="Food" Price="5" HitPointsToHeal="2"/>
   </HealingItems>
   <MiscellaneousItems>
     <MiscellaneousItem ID="3001" Name="Oats" Description="Ingredient" Price="1"/>

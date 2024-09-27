@@ -1,5 +1,6 @@
 ﻿using Engine.Actions;
 using Engine.Models;
+using Engine.Shared;
 using System.Xml;
 
 namespace Engine.Factories
@@ -32,50 +33,27 @@ namespace Engine.Factories
             {
                 GameItem.ItemType itemType = DetermineItemType(node.Name);
                 GameItem gameItem = new GameItem(itemType,
-                    GetXmlAttributesAsInt(node, "ID"),
-                    GetXmlAttributesAsString(node, "Name"),
-                    GetXmlAttributesAsString(node, "Description"),
-                    GetXmlAttributesAsInt(node, "Price"),
+                    node.AttributeAsInt("ID"),
+                    node.AttributeAsString("Name"),
+                    node.AttributeAsString("Description"),
+                    node.AttributeAsInt("Price"),
                     itemType == GameItem.ItemType.Weapon);
 
                 if (itemType == GameItem.ItemType.Weapon)
                 {
                     gameItem.Action = new AttackWithWeapon(gameItem,
-                        GetXmlAttributesAsInt(node, "MinDamage"),
-                        GetXmlAttributesAsInt(node, "MaxDamage") );
+                        node.AttributeAsInt("MinDamage"),
+                        node.AttributeAsInt("MaxDamage") );
                 }
                 else if (itemType == GameItem.ItemType.Consumable)
                 {
                     gameItem.Action = new Heal(gameItem,
-                        GetXmlAttributesAsInt(node, "HitPointsToHeal"));
+                        node.AttributeAsInt("HitPointsToHeal"));
                 }
                 _standardGameItems.Add(gameItem);
             }
 
         }
-
-        private static string GetXmlAttributesAsString(XmlNode node, string attributeName)
-        {
-            return GetXmlAttribute(node, attributeName);
-        }
-
-
-        private static int GetXmlAttributesAsInt(XmlNode node, string attributeName)
-        {
-            return Convert.ToInt32(GetXmlAttribute(node, attributeName));
-        }
-
-        private static string GetXmlAttribute(XmlNode node, string attributeName)
-        {
-            XmlAttribute? attribute = node.Attributes?[attributeName];
-            if (attribute == null)
-            {
-                throw new ArgumentException(
-                    $"The attribute '{attributeName}' does not exist.");
-            }
-            return attribute.Value;
-        }
-
         private static GameItem.ItemType DetermineItemType(string itemType)
         {
             switch (itemType)

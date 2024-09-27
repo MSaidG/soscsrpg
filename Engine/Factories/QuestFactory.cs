@@ -1,36 +1,59 @@
 ﻿using Engine.Models;
-
+using Engine.Shared;
+using System.Xml;
 namespace Engine.Factories
 {
-    internal class QuestFactory
+    internal static class QuestFactory
     {
-
+        private const string GAME_DATA_FILENAME = ".\\GameData\\Quests.xml";
         private static readonly List<Quest> _quests = new List<Quest>();
-
-        static QuestFactory() 
+        static QuestFactory()
         {
-            List<ItemQuantity> itemsToComplete = [];
-            List<ItemQuantity> rewardItems = [];
-
-            itemsToComplete.Add(new ItemQuantity(9001, 1));
-            rewardItems.Add(new ItemQuantity(1002, 1));
-
-            _quests.Add(new Quest(1, "Clear the herb garden",
-                "Defeat the snakes in the Herbalist's garden",
-                itemsToComplete, 25, 10,
-                rewardItems));
+            if (File.Exists(GAME_DATA_FILENAME))
+            {
+                XmlDocument data = new XmlDocument();
+                data.LoadXml(File.ReadAllText(GAME_DATA_FILENAME));
+                LoadQuestsFromNodes(data.SelectNodes("/Quests/Quest"));
+            }
+            else
+            {
+                throw new FileNotFoundException($"Missing data file: {GAME_DATA_FILENAME}");
+            }
+        }
+        private static void LoadQuestsFromNodes(XmlNodeList nodes)
+        {
+            foreach (XmlNode node in nodes)
+            {
+                // Declare the items need to complete the quest, and its reward items
+                List<ItemQuantity> itemsToComplete = new List<ItemQuantity>();
+                List<ItemQuantity> rewardItems = new List<ItemQuantity>();
+                foreach (XmlNode childNode in node.SelectNodes("./ItemsToComplete/Item"))
+                {
+                    itemsToComplete.Add(new ItemQuantity(childNode.AttributeAsInt("ID"),
+                                                         childNode.AttributeAsInt("Quantity")));
+                }
+                foreach (XmlNode childNode in node.SelectNodes("./RewardItems/Item"))
+                {
+                    rewardItems.Add(new ItemQuantity(childNode.AttributeAsInt("ID"),
+                                                     childNode.AttributeAsInt("Quantity")));
+                }
+                _quests.Add(new Quest(node.AttributeAsInt("ID"),
+                                      node.SelectSingleNode("./Name")?.InnerText ?? "",
+                                      node.SelectSingleNode("./Description")?.InnerText ?? "",
+                                      itemsToComplete,
+                                      node.AttributeAsInt("RewardXP"),
+                                      node.AttributeAsInt("RewardGold"),
+                                      rewardItems));
+            }
+        }
+        internal static Quest GetQuest(int id)
+        {
+            return _quests.FirstOrDefault(quest => quest.Id == id);
         }
 
-        internal static Quest? GetQuest(int id)
+        internal static Quest GetQuest(string name)
         {
-            return _quests.FirstOrDefault(
-                quest => quest.Id == id);
-        }
-
-        internal static Quest? GetQuest(string name)
-        {
-            return _quests.FirstOrDefault(
-                queest => queest.Name.Equals(name));
+            return _quests.FirstOrDefault(quest => quest.Name.Equals(name));
         }
     }
 }
