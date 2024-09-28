@@ -47,7 +47,7 @@
             <DataGrid Grid.Row="1" 
                       AutoGenerateColumns="False"
                       Margin="10"
-                      ItemsSource="{Binding Player.GroupedInventory}"
+                      ItemsSource="{Binding Player.Inventory.GroupedInventory}"
                       CanUserAddRows="False"
                       CanUserDeleteRows="False"
                       VerticalScrollBarVisibility="Auto">
@@ -87,7 +87,7 @@
             <DataGrid Grid.Row="1" 
                       AutoGenerateColumns="False"
                       Margin="10"
-                      ItemsSource="{Binding CurrentTrader.GroupedInventory}"
+                      ItemsSource="{Binding CurrentTrader.Inventory.GroupedInventory}"
                       CanUserAddRows="False"
                       CanUserDeleteRows="False"
                       VerticalScrollBarVisibility="Auto">

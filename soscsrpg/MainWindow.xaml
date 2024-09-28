@@ -142,7 +142,7 @@
                 
                 <TabItem Header="Inventroy"
                          x:Name="InventoryTabItem">
-                    <DataGrid ItemsSource="{Binding Player.GroupedInventory}" 
+                    <DataGrid ItemsSource="{Binding Player.Inventory.GroupedInventory}" 
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
@@ -205,14 +205,24 @@
                         <DataGrid.Columns>
 
                             <DataGridTemplateColumn Header="Name" Width="*">
+                                
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding PlayerQuest.Name}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
+                                
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" 
+                                                Value="{Binding PlayerQuest.ToolTipContents}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+
                             </DataGridTemplateColumn>
 
                             <DataGridTemplateColumn Header="Is Done" Width="Auto">
+                                
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding IsDone}"/>
@@ -232,6 +242,7 @@
                         <DataGrid.Columns>
 
                             <DataGridTemplateColumn Header="Name" Width="Auto">
+                                
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Name}"
@@ -239,6 +250,14 @@
                                                    Margin="10,0,10,0"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
+
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" 
+                                                Value="{Binding ToolTipContents}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+
                             </DataGridTemplateColumn>
 
                             <DataGridTemplateColumn Header="Ingredients" Width="*">
@@ -290,7 +309,7 @@
                 <ComboBox Grid.Row="0" Grid.Column="0"
                         Visibility="{Binding HasMonster, 
                             Converter={StaticResource BooleanToVisibility}}"
-                          ItemsSource="{Binding Player.Weapons}"
+                          ItemsSource="{Binding Player.Inventory.Weapons}"
                           SelectedItem="{Binding Player.CurrentWeapon}"
                           DisplayMemberPath="Name"/>
                 <Button Grid.Row="0" Grid.Column="2"
@@ -301,13 +320,13 @@
                         Click="AttackMonster_Click"/>
                 
                 <ComboBox Grid.Row="1" Grid.Column="0"
-                        Visibility="{Binding Player.HasConsumable, 
+                        Visibility="{Binding Player.Inventory.HasConsumable, 
                             Converter={StaticResource BooleanToVisibility}}"
-                          ItemsSource="{Binding Player.Consumables}"
+                          ItemsSource="{Binding Player.Inventory.Consumables}"
                           SelectedItem="{Binding Player.CurrentConsumable}"
                           DisplayMemberPath="Name"/>
                 <Button Grid.Row="1" Grid.Column="2"
-                        Visibility="{Binding Player.HasConsumable, 
+                        Visibility="{Binding Player.Inventory.HasConsumable, 
                             Converter={StaticResource BooleanToVisibility}}"
                         Content="Use"
                         Name="UseConsumable"

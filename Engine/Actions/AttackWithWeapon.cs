@@ -16,11 +16,11 @@ namespace Engine.Actions
             {
                 throw new ArgumentException($"{itemInUse.Name} is not a itemInUse");
             }
-            if (_minDamage < 0)
+            if (minDamage < 0)
             {
                 throw new ArgumentException("minimumDamage must be 0 or larger");
             }
-            if (_maxDamage < _minDamage)
+            if (maxDamage < minDamage)
             {
                 throw new ArgumentException("maximumDamage must be >= minimumDamage");
             }

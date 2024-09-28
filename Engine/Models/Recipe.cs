@@ -29,6 +29,14 @@
         public List<ItemQuantity> Ingredients { get; set; } = new List<ItemQuantity>();
         public List<ItemQuantity> OutputItems { get; set; } = new List<ItemQuantity>();
 
+        public string ToolTipContents =>
+                "Ingredients" + Environment.NewLine +
+                "===========" + Environment.NewLine +
+                string.Join(Environment.NewLine, Ingredients.Select(i => i.QuantityItemDescription)) +
+                Environment.NewLine + Environment.NewLine +
+                "Creates" + Environment.NewLine +
+                "===========" + Environment.NewLine +
+                string.Join(Environment.NewLine, OutputItems.Select(i => i.QuantityItemDescription));
 
     }
 }

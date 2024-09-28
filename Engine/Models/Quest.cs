@@ -21,5 +21,17 @@
             RewardGold = rewardGold;
             RewardItems = rewardItems;
         }
+
+        public string ToolTipContents =>
+                Description + Environment.NewLine + Environment.NewLine +
+                "Items to complete the quest" + Environment.NewLine +
+                "===========================" + Environment.NewLine +
+                string.Join(Environment.NewLine, ItemsToComplete.Select(i => i.QuantityItemDescription)) +
+                Environment.NewLine + Environment.NewLine +
+                "Rewards\r\n" +
+                "===========================" + Environment.NewLine +
+                $"{RewardXP} experience points" + Environment.NewLine +
+                $"{RewardGold} gold pieces" + Environment.NewLine +
+                string.Join(Environment.NewLine, RewardItems.Select(i => i.QuantityItemDescription));
     }
 }
